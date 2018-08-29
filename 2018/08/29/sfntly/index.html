@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Web Font," />
 
 
 
@@ -95,19 +95,18 @@
 
 
 
-<meta name="description" content="这个博客本来是想随便记一下笔记的，希望能养成个好习惯。… 哈哈哈，时间证明，我并没有这个习惯，我过了一年才回来，太忙? 不，就是懒！懒！懒！ 恩，这里有点空，就放张图片吧。。。（: (图片来自网络）">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="https://js5323.github.io.git/about/index.html">
+<meta name="description" content="中文字体TTF文件的大小实在是很大，压缩后还是很大，在页面中使用还是很影响性能，最终想办法是能否把只需要用的字体从文件中抽出来，找了一下，还真有相关的工具… 使用工具：sfnttoolsfnttool 是谷歌开源项目 sfntly 内置的工具，他的作用是从一个字体文件中提取指定的文字，导出的字体中将只包含你需要的文字。 以下是能用的jar包https://github.com/js5323/sfn">
+<meta name="keywords" content="Web Font">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从字体文件抽离需要用的文字">
+<meta property="og:url" content="https://js5323.github.io.git/2018/08/29/sfntly/index.html">
 <meta property="og:site_name" content="Js5323&#39;s Notes">
-<meta property="og:description" content="这个博客本来是想随便记一下笔记的，希望能养成个好习惯。… 哈哈哈，时间证明，我并没有这个习惯，我过了一年才回来，太忙? 不，就是懒！懒！懒！ 恩，这里有点空，就放张图片吧。。。（: (图片来自网络）">
+<meta property="og:description" content="中文字体TTF文件的大小实在是很大，压缩后还是很大，在页面中使用还是很影响性能，最终想办法是能否把只需要用的字体从文件中抽出来，找了一下，还真有相关的工具… 使用工具：sfnttoolsfnttool 是谷歌开源项目 sfntly 内置的工具，他的作用是从一个字体文件中提取指定的文字，导出的字体中将只包含你需要的文字。 以下是能用的jar包https://github.com/js5323/sfn">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://js5323.github.io.git/about/images/js-rock.gif">
-<meta property="og:updated_time" content="2018-08-29T04:09:17.874Z">
+<meta property="og:updated_time" content="2018-08-29T04:11:26.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="这个博客本来是想随便记一下笔记的，希望能养成个好习惯。… 哈哈哈，时间证明，我并没有这个习惯，我过了一年才回来，太忙? 不，就是懒！懒！懒！ 恩，这里有点空，就放张图片吧。。。（: (图片来自网络）">
-<meta name="twitter:image" content="https://js5323.github.io.git/about/images/js-rock.gif">
+<meta name="twitter:title" content="从字体文件抽离需要用的文字">
+<meta name="twitter:description" content="中文字体TTF文件的大小实在是很大，压缩后还是很大，在页面中使用还是很影响性能，最终想办法是能否把只需要用的字体从文件中抽出来，找了一下，还真有相关的工具… 使用工具：sfnttoolsfnttool 是谷歌开源项目 sfntly 内置的工具，他的作用是从一个字体文件中提取指定的文字，导出的字体中将只包含你需要的文字。 以下是能用的jar包https://github.com/js5323/sfn">
 
 
 
@@ -137,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://js5323.github.io.git/about/"/>
+  <link rel="canonical" href="https://js5323.github.io.git/2018/08/29/sfntly/"/>
 
 
 
 
 
-  <title>关于我 | Js5323's Notes</title>
+  <title>从字体文件抽离需要用的文字 | Js5323's Notes</title>
   
 
 
@@ -302,37 +301,177 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://js5323.github.io.git/2018/08/29/sfntly/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Js5323">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Js5323's Notes">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于我</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>这个博客本来是想随便记一下笔记的，希望能养成个好习惯。<br>…</p>
-<p>哈哈哈，时间证明，我并没有这个习惯，我过了一年才回来，太忙? 不，就是懒！懒！懒！</p>
-<p>恩，这里有点空，就放张图片吧。。。（:</p>
-<p><img src="/about/images/js-rock.gif" alt="">(图片来自网络）</p>
-
+          <h1 class="post-title" itemprop="name headline">从字体文件抽离需要用的文字</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-29T12:00:00+08:00">
+                2018-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>中文字体TTF文件的大小实在是很大，压缩后还是很大，在页面中使用还是很影响性能，<br>最终想办法是能否把只需要用的字体从文件中抽出来，找了一下，还真有相关的工具…</p>
+<h2 id="使用工具：sfnttool"><a href="#使用工具：sfnttool" class="headerlink" title="使用工具：sfnttool"></a>使用工具：sfnttool</h2><p>sfnttool 是谷歌开源项目 sfntly 内置的工具，他的作用是从一个字体文件中提取指定的文字，导出的字体中将只包含你需要的文字。</p>
+<p>以下是能用的jar包<br><a href="https://github.com/js5323/sfntly-builds" target="_blank" rel="external">https://github.com/js5323/sfntly-builds</a></p>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">java -jar sfnttool.jar -h  </div><div class="line">subset [-?|-h|-help] [-b] [-s string] fontfile outfile  </div><div class="line">prototype font subsetter  </div><div class="line">        -?,-help        print this help information  </div><div class="line">        -s,-string       string to subset  </div><div class="line">        -b,-bench        benchmark (run 10000 iterations)  </div><div class="line">        -h,-hints        strip hints  </div><div class="line">        -w,-woff         output woff format  </div><div class="line">        -e,-eot  output eot format  </div><div class="line">        -x,-mtx  enable microtype express compression for eot format</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar sfnttool.jar  -s &apos;这是一段测试文字&apos; msyh.ttf msyh_simplify.ttf</div></pre></td></tr></table></figure>
+<p>结果还是比较理想的，原本的字体文件有5.4m，需要的文字数量大概200个左右，导出后的文件大小200kb左右，大大的优化了文件大的问题</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Web-Font/" rel="tag"># Web Font</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/06/font-spider/" rel="next" title="字体工具：Font-Spider">
+                <i class="fa fa-chevron-left"></i> 字体工具：Font-Spider
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
   </div>
 
 
@@ -365,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -445,6 +593,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用工具：sfnttool"><span class="nav-number">1.</span> <span class="nav-text">使用工具：sfnttool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方式"><span class="nav-number">2.</span> <span class="nav-text">使用方式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -568,6 +732,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
