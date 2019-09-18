@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[关于H5中的音频、视频自动播放]]></title>
+    <url>%2F20190918%2FaudioAutoPlay%2F</url>
+    <content type="text"><![CDATA[因为浏览器的限制，不支持音频自动播放，无论是设置属性autoplay或者通过js去控制，都无法自动播放 并且会抛出一个Promise的错误: Uncaught (in promise) DOMException 忧伤，原因是为了提高用户体验，必须要有用户交互才能触发播放：12345678910111213141516Chrome’s autoplay policies are simple: 1、Muted autoplay is always allowed. video标签设置muted，即默认对视频进行静音可以进行播放， 2、Autoplay with sound is allowed if: User has interacted with the domain (click, tap, etc.). On desktop, the user’s Media Engagement Index threshold has been crossed, meaning the user has previously play video with sound. On mobile, the user has added the site to his or her home screen. Top frames can delegate autoplay permission to their iframes to allow autoplay with sound. 解决方法1、可以在界面设计一个按钮，通过引导用户进行交互，手动开启播放 2、相比1，如果实在无法放置一个按钮进行交互，只能捕获用户触摸屏幕进行播放，或者在微信浏览器中，在jssdk的ready回调中执行播放才能真正播放，示例代码： 123456789const audio = xxx;const play = function () &#123; audio.play(); document.removeEventListener(&quot;touchstart&quot;, play, false);&#125;;document.addEventListener(&quot;WeixinJSBridgeReady&quot;, function () &#123; play();&#125;, false);document.addEventListener(&quot;touchstart&quot;, play, false);]]></content>
+      <tags>
+        <tag>H5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[从字体文件抽离需要用的文字]]></title>
     <url>%2F20180829%2Fsfntly%2F</url>
     <content type="text"><![CDATA[中文字体TTF文件的大小实在是很大，压缩后还是很大，在页面中使用还是很影响性能，最终想办法是能否把只需要用的字体从文件中抽出来，找了一下，还真有相关的工具… 使用工具：sfnttoolsfnttool 是谷歌开源项目 sfntly 内置的工具，他的作用是从一个字体文件中提取指定的文字，导出的字体中将只包含你需要的文字。 以下是能用的jar包https://github.com/js5323/sfntly-builds 使用方式12345678910java -jar sfnttool.jar -h subset [-?|-h|-help] [-b] [-s string] fontfile outfile prototype font subsetter -?,-help print this help information -s,-string string to subset -b,-bench benchmark (run 10000 iterations) -h,-hints strip hints -w,-woff output woff format -e,-eot output eot format -x,-mtx enable microtype express compression for eot format 1java -jar sfnttool.jar -s &apos;这是一段测试文字&apos; msyh.ttf msyh_simplify.ttf 结果还是比较理想的，原本的字体文件有5.4m，需要的文字数量大概200个左右，导出后的文件大小200kb左右，大大的优化了文件大的问题]]></content>
