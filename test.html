@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+  </head>
+  <body>
+    <div>
+      <div class="" id="btn1" style="padding: 2em; background-color: bisque;">11111</div>
+      <div style="height: 100vh;"></div>
+      <div id="btn2" style="background-color: chocolate; padding: 2em;">22222</div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      var win = $(window);
+      var wh = win.height();
+      var st1 = $("#btn1").offset().top;
+      var st2 = $("#btn2").offset().top;
+      alert(wh);
+      alert(st1);
+      alert(st2);
+      alert(st1 > wh);
+      alert(st2 > wh);
+    </script>
+  </body>
+</html>
