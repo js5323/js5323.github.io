@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./vconsole.min.js"></script>
+    <script>
+      // VConsole 默认会挂载到 `window.VConsole` 上
+      var vConsole = new window.VConsole();
+    </script>
+  </head>
+  <body>
+    <div class="adobe-dc-view" id="adobe-dc-view"></div>
+    <script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("adobe_dc_view_sdk.ready", async function () {
+        var clientId = {
+          "localhost:5500": "acd056be60df497aa1d3ba35ebdc1e40",
+          "js5323.github.io": "129d0d5c44fa4383ab249ce3464f4f28",
+        }[location.host];
+        console.log(clientId);
+        window.adobeDCView = new AdobeDC.View({
+          clientId: clientId,
+          divId: "adobe-dc-view",
+        });
+        window.previewFile = await adobeDCView.previewFile(
+          {
+            content: {
+              location: {
+                url: "./create-forms-sample.pdf",
+              },
+            },
+            metaData: { fileName: "create-forms-sample.pdf" },
+          },
+          {
+            // "FULL_WINDOW", "SIZED_CONTAINER", "IN_LINE" or "LIGHT_BOX" as the embedMode
+            embedMode: "FULL_WINDOW",
+            // Right-hand panel: The right-hand panel is available by default to display the comments, page thumbnails, bookmarks and access the file attachments available in the PDF. It also provides various page navigation as well as page viewing controls. Page thumbnails and bookmarks are available by default, but can be disabled (showThumbnails and showBookmarks).
+            showThumbnails: true,
+            showDownloadPDF: false,
+            // Zoom control: This mode also provides zoom-in and zoom-out controls in the right-hand panel. (showZoomControl).
+            showZoomControl: true,
+            // View mode: Set the default page view to either "FIT_PAGE", "FIT_WIDTH", "TWO_COLUMN" or "TWO_COLUMN_FIT_PAGE" (defaultViewMode).
+            defaultViewMode: "FIT_WIDTH",
+            // Form-filling: Control form editing capability by simply toggling enableFormFilling on and off as needed.
+            enableFormFilling: true,
+            showAnnotationTools: false,
+            enableLinearization: true,
+          }
+        );
+
+        const saveOptions = {
+          autoSaveFrequency: 0,
+          enableFocusPolling: false,
+          showSaveButton: false,
+        };
+
+        adobeDCView.registerCallback(
+          AdobeDC.View.Enum.CallbackType.SAVE_API,
+          function (metaData, content, options) {
+            /* Add your custom save implementation here...and based on that resolve or reject response in given format */
+            return new Promise((resolve, reject) => {
+              resolve({
+                code: AdobeDC.View.Enum.ApiResponseCode.SUCCESS,
+                data: {
+                  /* Updated file metadata after successful save operation */
+                  metaData: {},
+                },
+              });
+            });
+          },
+          saveOptions
+        );
+      });
+    </script>
+  </body>
+</html>
